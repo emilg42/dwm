@@ -18,7 +18,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows          */
-static const unsigned int snap      = 32;       /* snap pixel 				        */
+static const unsigned int snap      = 32;       /* snap pixel 			    */
 static const unsigned int gappx     = 22;       /* gaps between windows             */
 static const int indx 	            = 2;        /* height of tag indicator          */
 static const int horizpadbar        = 4;        /* horizontal padding for statusbar */
