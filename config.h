@@ -9,7 +9,8 @@
  * - fullgaps (https://dwm.suckless.org/patches/fullgaps)
  * - statusallmons (https://dwm.suckless.org/patches/statusallmons)
  * - statuspadding (https://dwm.suckless.org/patches/statuspadding)
- * - alwayscenter (https://dwm.suckless.org/patches/alwayscenter/)
+ * - alwayscenter (https://dwm.suckless.org/patches/alwayscenter)
+ * - notitle (https://dwm.suckless.org/patches/notitle)
  * - dwmblocks (https://github.com/ashish-yadav11/dwmblocks > patches)
  *
  */ 
@@ -63,7 +64,7 @@ static const char *tags[] = {"\uf121", "\uf0ac", "\uf06d", "\uf292"};
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{  NULL,      NULL,      "popup",     0,       		1,           -1 },
+	{  NULL,      NULL,      "popup",     0,            1,           -1 },
 };
 
 
@@ -106,7 +107,7 @@ static const char *termcmd[]  = { "urxvt", NULL };
 static Key keys[] = {
 	/* modifier     (chain key)     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,	                	XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_t,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -116,7 +117,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_z,	   zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,	                	XK_q,      killclient,     {0} },
+	{ MODKEY,                       XK_q,      killclient,     {0} },
 
 	/* layout switching */
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
@@ -150,7 +151,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 
 	/* custom keybinds */
-	{ MODKEY|ShiftMask, 			XK_s,      spawn,          SHCMD("maim -s -u | xclip -selection clipboard -t image/png -i") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("maim -s -u | xclip -selection clipboard -t image/png -i") },
 
 	/* exiting keybind(s) */
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
@@ -162,7 +163,6 @@ static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 
 	/* dwmblocks signal(s) */
 	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} }, /* left   */
@@ -170,7 +170,7 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} }, /* right  */
 	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} }, /* up     */
 	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} }, /* down   */
-	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} }, 
+	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} }, /* s + lc */
 
 	/* additional keybinds */
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
