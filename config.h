@@ -112,7 +112,7 @@ static const Layout layouts[] = {
     { ">  \uf5fd ",  NULL    },
     { ">  [M] ",     monocle },
     { ">  [@]",      spiral  },
- 	{ ">  [\\]",     dwindle }
+    { ">  [\\]",     dwindle }
 };
 
 
@@ -131,8 +131,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0";
-static const char hpList[] = "code,discord,firefox,zathura";
-static const char *dmenucmd[] = { "dmenu_run", "-hp", hpList, "-m", dmenumon };
+static const char hplst[] = "code,discord,firefox,zathura,spotify,chromium,atom";
+static const char *dmenucmd[] = { "dmenu_run", "-hp", hplst, "-m", dmenumon };
 static const char *termcmd[]  = { "urxvt", NULL };
 static const char *scratchpadcmd[] = { "s", "urxvt", "-title", "scratchpad", NULL };
 
@@ -159,7 +159,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,     XK_f,         setlayout,        {.v = &layouts[1]} },
     { MODKEY|ShiftMask,     XK_m,         setlayout,        {.v = &layouts[2]} },
     { MODKEY,               XK_r,         setlayout,        {.v = &layouts[3]} },
-	{ MODKEY|ShiftMask,     XK_r,         setlayout,        {.v = &layouts[4]} },
+    { MODKEY|ShiftMask,     XK_r,         setlayout,        {.v = &layouts[4]} },
 
 
     /* layout manipulation */
@@ -198,11 +198,6 @@ static Key keys[] = {
     { MODKEY,               XK_F5,        spawn,            SHCMD("playerctl -p spotify previous") },
     { MODKEY,               XK_F6,        spawn,            SHCMD("playerctl -p spotify play-pause") },
     { MODKEY,               XK_F7,        spawn,            SHCMD("playerctl -p spotify next") },
-
- // { MODKEY,               XK_F5,        spawn,            SHCMD("spt playback --previous") },
- // { MODKEY,               XK_F6,        spawn,            SHCMD("spt playback --toggle") },
- // { MODKEY,               XK_F7,        spawn,            SHCMD("spt playback --next") },
-
 
     /* exiting keybind(s) */
     { MODKEY|ShiftMask,     XK_q,         quit,             {0} },
