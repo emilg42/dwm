@@ -40,10 +40,10 @@ static const int viewontag          = 1;        /* 0 means don't view tag on swi
 static const char *fonts[]          = { "JetBrains Mono:style=Bold:size=12:antialias=true" };
 
 /* color definitions */
-static const char col_background[]  = "#1e1e1e"; /* background color of bar               */
-static const char col_border[]      = "#444444"; /* border color unfocused windows        */
-static const char col_font[]        = "#a9a9a9"; /* default font color                    */
-static const char col_active[]      = "#004763"; /* border color focused windows and tags */
+static const char col_background[]  = "#101b21"; /* background color of bar               */
+static const char col_border[]      = "#5A616A"; /* border color unfocused windows        */
+static const char col_font[]        = "#9197A1"; /* default font color                    */
+static const char col_active[]      = "#22577A"; /* border color focused windows and tags */
 
 
 /* color schemes */
